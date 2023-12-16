@@ -14,10 +14,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',255);
             $table->decimal('price', 8, 2);
-            $table->string('image')->nullable();
-            $table->string('manufacturer');
+            $table->string('image', 255)->nullable();
+            $table->string('manufacturer', 255);
+            $table->text('description')->nullable();
+            $table->integer('engine');
+            $table->integer('wheel');
+            $table->enum('engine_type', ['electric', 'diesel', 'hybrid', 'gasoline']);
             $table->timestamps();
         });
     }
